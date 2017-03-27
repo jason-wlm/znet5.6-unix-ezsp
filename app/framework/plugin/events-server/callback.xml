@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="EVENTS_SERVER_OK_TO_CLEAR_LOG" name="Ok To Clear Log" returnType="boolean">
+    <description> 
+      This function is called by the Events server plugin whenever a Clear Event Log Request command is received.  The application should return TRUE if it is Ok to clear the given log and FALSE otherwise.
+      If the request is to clear all logs (i.e. logId == EMBER_ZCL_EVENT_LOG_ID_ALL_LOGS) and the application allows all logs to be cleared then the application should return TRUE.  If the application
+      does not allow all logs to be cleared it should return FALSE in which case the plugin will subsequently call this callback for each event log allowing the application to selectively choose which
+      event logs are Ok to be cleared. 
+    </description>
+    <arg name="logId" type="EmberAfEventLogId"  description="The identifier of the log requested to be cleared." />
+    <codeForStub>
+      return TRUE;
+    </codeForStub>
+  </function>
+  <function id="EVENTS_SERVER_DATA_UPDATED" name="Log Data Updated" returnType="void">
+    <description> 
+      This function is called by the Events server plugin when any modification to the plugin's event logs has been made. The argument will hint the ZCL command that might be used to triggered the data change. If null, it means the logging data have been updated through other means, e.g. CLI.
+    </description>
+    <arg name="cmd" type="const EmberAfClusterCommand *"  description="ZCL command" />
+    <codeForStub />
+  </function>
+</callback>

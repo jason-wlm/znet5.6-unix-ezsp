@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="GBCS_DEVICE_LOG_DEVICE_REMOVED" name="Device Removed" returnType="void">
+    <description>
+      This callback is called by the plugin when a device is removed from the device log.
+    </description>
+    <arg name="deviceId" type="EmberEUI64" description="Identifier of the device removed" />
+    <codeForStub>
+  emberAfAppPrint("GBCS emberAfPluginGbcsDeviceLogDeviceRemovedCallback: EUI64=");
+  emberAfAppDebugExec(emberAfPrintBigEndianEui64(deviceId));
+  emberAfAppPrintln("");
+      </codeForStub>
+  </function>
+</callback>

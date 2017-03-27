@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  
+  <function id="COMPLETE" name="Complete" returnType="void">
+    <description>
+      This callback notifies the user that the network creation process has completed.
+    </description>
+    <arg name="network" type="const EmberNetworkParameters *" description="The network that the network creator plugin successfully formed." />
+    <codeForStub/>
+  </function>
+
+  <function id="NETWORK_CREATOR_SHOULD_JOIN_NETWORK" name="Should Form Network" returnType="boolean">
+    <description>
+      This function is called when the network creator has collected data on a possible network to form and wants to ask the user if it should form the network.
+    </description>
+    <arg name="channel" type="int8u" description="The channel for the potential network" />
+    <arg name="usedSecondaryChannels" type="boolean" description="Whether or not the network creator wants to form a network on the secondary channels" />
+    <codeForStub>
+      return TRUE;
+    </codeForStub>
+  </function>
+
+</callback>

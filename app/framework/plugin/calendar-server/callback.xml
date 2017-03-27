@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="CALENDAR_SERVER_PUBLISH_INFO" name="Publish Info" returnType="void">
+    <description> 
+      This function is called by the calendar-server plugin after receiving any of the following commands and just before it starts publishing the response: GetCalendar, GetDayProfiles, GetSeasons, GetSpecialDays, and GetWeekProfiles.
+    </description>
+    <arg name="publishCommandId" type="int8u"       description="ZCL command to be published" />
+    <arg name="clientNodeId"     type="EmberNodeId" description="Destination nodeId" />
+    <arg name="clientEndpoint"   type="int8u"       description="Destination endpoint" />
+    <arg name="totalCommands"    type="int8u"       description="Total number of publish commands to be sent" />
+    <codeForStub />
+  </function>
+</callback>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<cli>
+  <group id="plugin-network-commissioner"
+         name="Plugin Commands: Network Commissioner">
+    <description>
+      Commands pertaining to network commissioning with the Network Commissioner plugin.
+    </description>
+  </group>
+
+  <command cli="plugin network-commissioner start"
+           functionName="emberAfPluginNetworkCommissionerStartCommand"
+           group="plugin-network-commissioner">
+    <arg name="endpoint"
+         type="INT8U"
+         description="The endpoint on which the commissioning will take place." />
+    <description>
+      Starts the network commissioning process.
+    </description>
+  </command>
+  
+</cli>

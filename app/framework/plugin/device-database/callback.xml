@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="DISCOVERY_COMPLETE" name="Discovery Complete" returnType="void">
+    <description>
+       This function is called when a device in the database has been set to EMBER_AF_DEVICE_DISCOVERY_STATUS_DONE.
+    </description>
+    <arg name="device"  type="const EmberAfDeviceInfo*" description="A pointer to the information struct about the device." />
+    <codeForStub/>
+  </function>
+</callback>

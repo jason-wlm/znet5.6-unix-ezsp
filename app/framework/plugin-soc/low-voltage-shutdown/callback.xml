@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="OK_TO_SHUTDOWN" name="Ok To Shutdown" returnType="boolean">
+    <description>
+      This function is called by the Low Voltage Shutdown plugin after the low voltage threshold has been detected but before shutting down the chip (until a full power-on reset is triggered).  The application should return TRUE if the device may shutdown or FALSE otherwise.  Note that this callback is not the proper place to put logic to be performed just prior to shutdown; that would be the Pre Shutdown Callback.  If callback returns FALSE, shutdown check will be performed again in EMBER_AF_PLUGIN_LOW_VOLTAGE_SHUTDOWN_POSTPONE_DURATION_MS milliseconds.
+    </description>
+    <arg name="shutdownVoltage" type="int16u" description="The voltage (in mV) read from VDD at shutdown time, which can be used to determine the risk in doing any further activities prior to shutdown." />
+    <codeForStub>
+      return TRUE;
+    </codeForStub>
+  </function>
+  <function id="PRE_SHUTDOWN" name="Pre Shutdown" returnType="void">
+    <description>
+      This function is called by the Low Voltage Shutdown plugin just prior to shutting down, allowing the application to do any last-minute clean-up before the chip goes offline until next reset.  (Can't prevent shutdown from this context; use Ok To Shutdown callback for that instead.)
+    </description>
+    <arg name="shutdownVoltage" type="int16u" description="The voltage (in mV) read from VDD at shutdown time, which can be used to determine the risk in doing any further activities prior to shutdown." />
+    <codeForStub />
+  </function>
+</callback>

@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <include>EMBER_AF_API_RF4CE_PROFILE</include>
+  <function id="GDP_MESSAGE_SENT" name="Gdp Message Sent" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a GDP message is sent. It is expected to return TRUE if the sent message was processed by the GDP plugin, FALSE otherwise.
+    </description>
+    <arg name="pairingIndex"  type="int8u"         description="The index of the entry in the pairing table used to transmit the message." />
+    <arg name="profileId"     type="int8u"         description="The profile ID included in the message." />
+    <arg name="vendorId"      type="int16u"        description="The vendor ID included in the message." />
+    <arg name="messageTag"    type="int8u"         description="The tag of the message." />
+    <arg name="message"       type="const int8u *" description="A pointer to the payload of the message that was sent." />
+    <arg name="messageLength" type="int8u"         description="The length in bytes of the message." />
+    <arg name="status"        type="EmberStatus"   description="An ::EmberStatus value." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="REMOTE_CONTROL_1_1_MESSAGE_SENT" name="Remote Control 1 1 Message Sent" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when a Remote Control 1.0 or 1.1 message is sent.
+    </description>
+    <arg name="pairingIndex"  type="int8u"         description="The index of the entry in the pairing table used to transmit the message." />
+    <arg name="vendorId"      type="int16u"        description="The vendor ID included in the message." />
+    <arg name="messageTag"    type="int8u"         description="The tag of the message." />
+    <arg name="message"       type="const int8u *" description="A pointer to the payload of the message that was sent." />
+    <arg name="messageLength" type="int8u"         description="The length in bytes of the message." />
+    <arg name="status"        type="EmberStatus"   description="An ::EmberStatus value." />
+    <codeForStub />
+  </function>
+  <function id="ZRC_2_0_MESSAGE_SENT" name="Zrc 2 0 Message Sent" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when a ZRC 2.0 message is sent.
+    </description>
+    <arg name="pairingIndex"  type="int8u"         description="The index of the entry in the pairing table used to transmit the message." />
+    <arg name="vendorId"      type="int16u"        description="The vendor ID included in the message." />
+    <arg name="messageTag"    type="int8u"         description="The tag of the message." />
+    <arg name="message"       type="const int8u *" description="A pointer to the payload of the message that was sent." />
+    <arg name="messageLength" type="int8u"         description="The length in bytes of the message." />
+    <arg name="status"        type="EmberStatus"   description="An ::EmberStatus value." />
+    <codeForStub />
+  </function>
+  <function id="MSO_MESSAGE_SENT" name="Mso Message Sent" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when an MSO message is sent.
+    </description>
+    <arg name="pairingIndex"  type="int8u"         description="The index of the entry in the pairing table used to transmit the message." />
+    <arg name="vendorId"      type="int16u"        description="The vendor ID included in the message." />
+    <arg name="messageTag"    type="int8u"         description="The tag of the message." />
+    <arg name="message"       type="const int8u *" description="A pointer to the payload of the message that was sent." />
+    <arg name="messageLength" type="int8u"         description="The length in bytes of the message." />
+    <arg name="status"        type="EmberStatus"   description="An ::EmberStatus value." />
+    <codeForStub />
+  </function>
+  <function id="MESSAGE_SENT" name="Message Sent" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when a message is sent.  It is called after any profile-specific callbacks.
+    </description>
+    <arg name="pairingIndex"  type="int8u"         description="The index of the entry in the pairing table used to transmit the message." />
+    <arg name="profileId"     type="int8u"         description="The profile ID included in the message." />
+    <arg name="vendorId"      type="int16u"        description="The vendor ID included in the message." />
+    <arg name="messageTag"    type="int8u"         description="The tag of the message." />
+    <arg name="message"       type="const int8u *" description="A pointer to the payload of the message that was sent." />
+    <arg name="messageLength" type="int8u"         description="The length in bytes of the message." />
+    <arg name="status"        type="EmberStatus"   description="An ::EmberStatus value." />
+    <codeForStub />
+  </function>
+  <function id="GDP_INCOMING_MESSAGE" name="Gdp Incoming Message" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when any message is received. This callback is expected to return TRUE if the passed message was processed by the GDP plugin, FALSE otherwise.
+    </description>
+    <arg name="pairingIndex"  type="int8u"              description="The index of the entry in the pairing table corresponding to the PAN on which the message was received." />
+    <arg name="profileId"     type="int8u"              description="The profile ID included in the message." />
+    <arg name="vendorId"      type="int16u"             description="The vendor ID included in the message." />
+    <arg name="txOptions"     type="EmberRf4ceTxOption" description="The TX options used by the source node to transmit the received message." />
+    <arg name="message"       type="const int8u *"      description="A pointer to the payload of the received message." />
+    <arg name="messageLength" type="int8u"              description="The length in bytes of the received message." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="REMOTE_CONTROL_1_1_INCOMING_MESSAGE" name="Remote Control 1 1 Incoming Message" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when a Remote Control 1.0 or 1.1 message is received.
+    </description>
+    <arg name="pairingIndex"  type="int8u"              description="The index of the entry in the pairing table corresponding to the PAN on which the message was received." />
+    <arg name="vendorId"      type="int16u"             description="The vendor ID included in the message." />
+    <arg name="txOptions"     type="EmberRf4ceTxOption" description="The TX options used by the source node to transmit the received message." />
+    <arg name="message"       type="const int8u *"      description="A pointer to the payload of the received message." />
+    <arg name="messageLength" type="int8u"              description="The length in bytes of the received message." />
+    <codeForStub />
+  </function>
+  <function id="ZRC_2_0_INCOMING_MESSAGE" name="Zrc 2 0 Incoming Message" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when a ZRC 2.0 message is received.
+    </description>
+    <arg name="pairingIndex"  type="int8u"              description="The index of the entry in the pairing table corresponding to the PAN on which the message was received." />
+    <arg name="vendorId"      type="int16u"             description="The vendor ID included in the message." />
+    <arg name="txOptions"     type="EmberRf4ceTxOption" description="The TX options used by the source node to transmit the received message." />
+    <arg name="message"       type="const int8u *"      description="A pointer to the payload of the received message." />
+    <arg name="messageLength" type="int8u"              description="The length in bytes of the received message." />
+    <codeForStub />
+  </function>
+  <function id="MSO_INCOMING_MESSAGE" name="Mso Incoming Message" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when an MSO message is received.
+    </description>
+    <arg name="pairingIndex"  type="int8u"              description="The index of the entry in the pairing table corresponding to the PAN on which the message was received." />
+    <arg name="vendorId"      type="int16u"             description="The vendor ID included in the message." />
+    <arg name="txOptions"     type="EmberRf4ceTxOption" description="The TX options used by the source node to transmit the received message." />
+    <arg name="message"       type="const int8u *"      description="A pointer to the payload of the received message." />
+    <arg name="messageLength" type="int8u"              description="The length in bytes of the received message." />
+    <codeForStub />
+  </function>
+  <function id="INCOMING_MESSAGE" name="Incoming Message" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when a message is received.  It is called after any profile-specific callbacks.
+    </description>
+    <arg name="pairingIndex"  type="int8u"               description="The index of the entry in the pairing table corresponding to the PAN on which the message was received." />
+    <arg name="profileId"     type="int8u"               description="The profile ID included in the message." />
+    <arg name="vendorId"      type="int16u"              description="The vendor ID included in the message." />
+    <arg name="txOptions"     type="EmberRf4ceTxOption"  description="The TX options used by the source node to transmit the received message." />
+    <arg name="message"       type="const int8u *"       description="A pointer to the payload of the received message." />
+    <arg name="messageLength" type="int8u"               description="The length in bytes of the received message." />
+    <codeForStub />
+  </function>
+  <function id="GDP_DISCOVERY_REQUEST" name="Gdp Discovery Request" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a discovery request for the GDP profile is received.
+    </description>
+    <arg name="ieeeAddr"         type="const EmberEUI64"                  description="The IEEE address of the requesting device." />
+    <arg name="nodeCapabilities" type="int8u"                             description="The capabilities of the requesting device." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="The vendor information of the requesting device." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="The application information of the requesting device." />
+    <arg name="searchDevType"    type="int8u"                             description="The device type requested." />
+    <arg name="rxLinkQuality"    type="int8u"                             description="The LQI of the request." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="REMOTE_CONTROL_1_1_DISCOVERY_REQUEST" name="Remote Control 1 1 Discovery Request" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a discovery request for the Remote Control 1.0 or 1.1 profile is received.
+    </description>
+    <arg name="ieeeAddr"         type="const EmberEUI64"                  description="The IEEE address of the requesting device." />
+    <arg name="nodeCapabilities" type="int8u"                             description="The capabilities of the requesting device." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="The vendor information of the requesting device." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="The application information of the requesting device." />
+    <arg name="searchDevType"    type="int8u"                             description="The device type requested." />
+    <arg name="rxLinkQuality"    type="int8u"                             description="The LQI of the request." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="ZRC_2_0_DISCOVERY_REQUEST" name="Zrc 2 0 Discovery Request" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a discovery request for the ZRC 2.0 profile is received.
+    </description>
+    <arg name="ieeeAddr"         type="const EmberEUI64"                  description="The IEEE address of the requesting device." />
+    <arg name="nodeCapabilities" type="int8u"                             description="The capabilities of the requesting device." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="The vendor information of the requesting device." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="The application information of the requesting device." />
+    <arg name="searchDevType"    type="int8u"                             description="The device type requested." />
+    <arg name="rxLinkQuality"    type="int8u"                             description="The LQI of the request." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="MSO_DISCOVERY_REQUEST" name="Mso Discovery Request" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a discovery request for the MSO profile is received.
+    </description>
+    <arg name="ieeeAddr"         type="const EmberEUI64"                  description="The IEEE address of the requesting device." />
+    <arg name="nodeCapabilities" type="int8u"                             description="The capabilities of the requesting device." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="The vendor information of the requesting device." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="The application information of the requesting device." />
+    <arg name="searchDevType"    type="int8u"                             description="The device type requested." />
+    <arg name="rxLinkQuality"    type="int8u"                             description="The LQI of the request." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="GDP_DISCOVERY_RESPONSE" name="Gdp Discovery Response" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a discovery response for the GDP profile is received.
+    </description>
+    <arg name="atCapacity"       type="boolean"                           description="TRUE if the node sending the discovery response has no free entry in its pairing table, FALSE otherwise." />
+    <arg name="channel"          type="int8u"                             description="The channel on which the discovery response was received." />
+    <arg name="panId"            type="EmberPanId"                        description="The PAN identifier of the responding device." />
+    <arg name="ieeeAddr"         type="const EmberEUI64"                  description="The IEEE address of the responding device." />
+    <arg name="nodeCapabilities" type="int8u"                             description="The capabilities of the responding device." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="The vendor information of the responding device." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="The application information of the responding device." />
+    <arg name="rxLinkQuality"    type="int8u"                             description="The LQI of the discovery response." />
+    <arg name="discRequestLqi"   type="int8u"                             description="The LQI of the discovery request command frame reported by the responding device." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="REMOTE_CONTROL_1_1_DISCOVERY_RESPONSE" name="Remote Control 1 1 Discovery Response" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a discovery response for the Remote Control 1.0 or 1.1 profile is received.
+    </description>
+    <arg name="atCapacity"       type="boolean"                           description="TRUE if the node sending the discovery response has no free entry in its pairing table, FALSE otherwise." />
+    <arg name="channel"          type="int8u"                             description="The channel on which the discovery response was received." />
+    <arg name="panId"            type="EmberPanId"                        description="The PAN identifier of the responding device." />
+    <arg name="ieeeAddr"         type="const EmberEUI64"                  description="The IEEE address of the responding device." />
+    <arg name="nodeCapabilities" type="int8u"                             description="The capabilities of the responding device." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="The vendor information of the responding device." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="The application information of the responding device." />
+    <arg name="rxLinkQuality"    type="int8u"                             description="The LQI of the discovery response." />
+    <arg name="discRequestLqi"   type="int8u"                             description="The LQI of the discovery request command frame reported by the responding device." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="ZRC_2_0_DISCOVERY_RESPONSE" name="Zrc 2 0 Discovery Response" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a discovery response for the ZRC 2.0 profile is received.
+    </description>
+    <arg name="atCapacity"       type="boolean"                           description="TRUE if the node sending the discovery response has no free entry in its pairing table, FALSE otherwise." />
+    <arg name="channel"          type="int8u"                             description="The channel on which the discovery response was received." />
+    <arg name="panId"            type="EmberPanId"                        description="The PAN identifier of the responding device." />
+    <arg name="ieeeAddr"         type="const EmberEUI64"                  description="The IEEE address of the responding device." />
+    <arg name="nodeCapabilities" type="int8u"                             description="The capabilities of the responding device." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="The vendor information of the responding device." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="The application information of the responding device." />
+    <arg name="rxLinkQuality"    type="int8u"                             description="The LQI of the discovery response." />
+    <arg name="discRequestLqi"   type="int8u"                             description="The LQI of the discovery request command frame reported by the responding device." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="MSO_DISCOVERY_RESPONSE" name="Mso Discovery Response" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a discovery response for the MSO profile is received.
+    </description>
+    <arg name="atCapacity"       type="boolean"                           description="TRUE if the node sending the discovery response has no free entry in its pairing table, FALSE otherwise." />
+    <arg name="channel"          type="int8u"                             description="The channel on which the discovery response was received." />
+    <arg name="panId"            type="EmberPanId"                        description="The PAN identifier of the responding device." />
+    <arg name="ieeeAddr"         type="const EmberEUI64"                  description="The IEEE address of the responding device." />
+    <arg name="nodeCapabilities" type="int8u"                             description="The capabilities of the responding device." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="The vendor information of the responding device." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="The application information of the responding device." />
+    <arg name="rxLinkQuality"    type="int8u"                             description="The LQI of the discovery response." />
+    <arg name="discRequestLqi"   type="int8u"                             description="The LQI of the discovery request command frame reported by the responding device." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="GDP_DISCOVERY_COMPLETE" name="Gdp Discovery Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the discovery process for the GDP profile has completed.
+    </description>
+    <arg name="status" type="EmberStatus" description="An ::EmberStatus value indicating whether the discovery succeeded or the failure reason." />
+    <codeForStub />
+  </function>
+  <function id="REMOTE_CONTROL_1_1_DISCOVERY_COMPLETE" name="Remote Control 1 1 Discovery Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the discovery process for the Remote Control 1.0 or 1.1 profile has completed.
+    </description>
+    <arg name="status" type="EmberStatus" description="An ::EmberStatus value indicating whether the discovery succeeded or the failure reason." />
+    <codeForStub />
+  </function>
+  <function id="ZRC_2_0_DISCOVERY_COMPLETE" name="Zrc 2 0 Discovery Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the discovery process for the ZRC 2.0 profile has completed.
+    </description>
+    <arg name="status" type="EmberStatus" description="An ::EmberStatus value indicating whether the discovery succeeded or the failure reason." />
+    <codeForStub />
+  </function>
+  <function id="MSO_DISCOVERY_COMPLETE" name="Mso Discovery Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the discovery process for the MSO profile has completed.
+    </description>
+    <arg name="status" type="EmberStatus" description="An ::EmberStatus value indicating whether the discovery succeeded or the failure reason." />
+    <codeForStub />
+  </function>
+  <function id="GDP_AUTO_DISCOVERY_RESPONSE_COMPLETE" name="Gdp Auto Discovery Response Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the auto discovery response process for the GDP profile has completed.
+    </description>
+    <arg name="status"           type="EmberStatus"                       description="An ::EmberStatus value indicating whether the discovery succeeded or the failure reason." />
+    <arg name="srcIeeeAddr"      type="const EmberEUI64"                  description="The IEEE address of the node from which the discovery request command frame was received.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS" />
+    <arg name="nodeCapabilities" type="int8u"                             description="The node capabilities of the node that issued the discovery request.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="A pointer to an ::EmberRf4ceVendorInfo struct containing the vendor information of the node that issued the discovery request.  This parameter is non-NULL only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="A pointer to an ::EmberRf4ceApplicationInfo struct containing the application information of the node that issued the discovery request.  This parameter is non-NULL only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="searchDevType"    type="int8u"                             description="The device type being discovered.  If this is 0xFF, any type is being requested.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS." />
+    <codeForStub />
+  </function>
+  <function id="REMOTE_CONTROL_1_1_AUTO_DISCOVERY_RESPONSE_COMPLETE" name="Remote Control 1 1 Auto Discovery Response Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the auto discovery response process for the Remote Control 1.0 or 1.1 profile has completed.
+    </description>
+    <arg name="status"           type="EmberStatus"                       description="An ::EmberStatus value indicating whether the discovery succeeded or the failure reason." />
+    <arg name="srcIeeeAddr"      type="const EmberEUI64"                  description="The IEEE address of the node from which the discovery request command frame was received.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS" />
+    <arg name="nodeCapabilities" type="int8u"                             description="The node capabilities of the node that issued the discovery request.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="A pointer to an ::EmberRf4ceVendorInfo struct containing the vendor information of the node that issued the discovery request.  This parameter is non-NULL only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="A pointer to an ::EmberRf4ceApplicationInfo struct containing the application information of the node that issued the discovery request.  This parameter is non-NULL only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="searchDevType"    type="int8u"                             description="The device type being discovered.  If this is 0xFF, any type is being requested.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS." />
+    <codeForStub />
+  </function>
+  <function id="ZRC_2_0_AUTO_DISCOVERY_RESPONSE_COMPLETE" name="Zrc 2 0 Auto Discovery Response Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the auto discovery response process for the ZRC 2.0 profile has completed.
+    </description>
+    <arg name="status"           type="EmberStatus"                       description="An ::EmberStatus value indicating whether the discovery succeeded or the failure reason." />
+    <arg name="srcIeeeAddr"      type="const EmberEUI64"                  description="The IEEE address of the node from which the discovery request command frame was received.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS" />
+    <arg name="nodeCapabilities" type="int8u"                             description="The node capabilities of the node that issued the discovery request.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="A pointer to an ::EmberRf4ceVendorInfo struct containing the vendor information of the node that issued the discovery request.  This parameter is non-NULL only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="A pointer to an ::EmberRf4ceApplicationInfo struct containing the application information of the node that issued the discovery request.  This parameter is non-NULL only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="searchDevType"    type="int8u"                             description="The device type being discovered.  If this is 0xFF, any type is being requested.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS." />
+    <codeForStub />
+  </function>
+  <function id="MSO_AUTO_DISCOVERY_RESPONSE_COMPLETE" name="Mso Auto Discovery Response Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the auto discovery response process for the MSO profile has completed.
+    </description>
+    <arg name="status"           type="EmberStatus"                       description="An ::EmberStatus value indicating whether the discovery succeeded or the failure reason." />
+    <arg name="srcIeeeAddr"      type="const EmberEUI64"                  description="The IEEE address of the node from which the discovery request command frame was received.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS" />
+    <arg name="nodeCapabilities" type="int8u"                             description="The node capabilities of the node that issued the discovery request.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="vendorInfo"       type="const EmberRf4ceVendorInfo *"      description="A pointer to an ::EmberRf4ceVendorInfo struct containing the vendor information of the node that issued the discovery request.  This parameter is non-NULL only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="appInfo"          type="const EmberRf4ceApplicationInfo *" description="A pointer to an ::EmberRf4ceApplicationInfo struct containing the application information of the node that issued the discovery request.  This parameter is non-NULL only if the status parameter is ::EMBER_SUCCESS." />
+    <arg name="searchDevType"    type="int8u"                             description="The device type being discovered.  If this is 0xFF, any type is being requested.  This parameter is meaningful only if the status parameter is ::EMBER_SUCCESS." />
+    <codeForStub />
+  </function>
+  <function id="GDP_PAIR_REQUEST" name="Gdp Pair Request" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a pair request for the GDP profile is received.
+    </description>
+    <arg name="status"                   type="EmberStatus"                       description="An ::EmberStatus value indicating whether the pairing is a new pairing, a duplicate or if the pairing table is full." />
+    <arg name="pairingIndex"             type="int8u"                             description="The index of the entry that will be used by the stack for the pairing link." />
+    <arg name="sourceIeeeAddr"           type="const EmberEUI64"                  description="The source IEEE address of the incoming pair request." />
+    <arg name="nodeCapabilities"         type="int8u"                             description="The node capabilities of the node that issued the pair request." />
+    <arg name="vendorInfo"               type="const EmberRf4ceVendorInfo *"      description="The vendor information of the requesting device." />
+    <arg name="appInfo"                  type="const EmberRf4ceApplicationInfo *" description="The application information of the requesting device." />
+    <arg name="keyExchangeTransferCount" type="int8u"                             description="The number of transfers to be used to exchange the link key with the pairing originator." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="REMOTE_CONTROL_1_1_PAIR_REQUEST" name="Remote Control 1 1 Pair Request" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a pair request for the Remote Control 1.0 or 1.1 profile is received.
+    </description>
+    <arg name="status"                   type="EmberStatus"                       description="An ::EmberStatus value indicating whether the pairing is a new pairing, a duplicate or if the pairing table is full." />
+    <arg name="pairingIndex"             type="int8u"                             description="The index of the entry that will be used by the stack for the pairing link." />
+    <arg name="sourceIeeeAddr"           type="const EmberEUI64"                  description="The source IEEE address of the incoming pair request." />
+    <arg name="nodeCapabilities"         type="int8u"                             description="The node capabilities of the node that issued the pair request." />
+    <arg name="vendorInfo"               type="const EmberRf4ceVendorInfo *"      description="The vendor information of the requesting device." />
+    <arg name="appInfo"                  type="const EmberRf4ceApplicationInfo *" description="The application information of the requesting device." />
+    <arg name="keyExchangeTransferCount" type="int8u"                             description="The number of transfers to be used to exchange the link key with the pairing originator." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="ZRC_2_0_PAIR_REQUEST" name="Zrc 2 0 Pair Request" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a pair request for the ZRC 2.0 profile is received.
+    </description>
+    <arg name="status"                   type="EmberStatus"                       description="An ::EmberStatus value indicating whether the pairing is a new pairing, a duplicate or if the pairing table is full." />
+    <arg name="pairingIndex"             type="int8u"                             description="The index of the entry that will be used by the stack for the pairing link." />
+    <arg name="sourceIeeeAddr"           type="const EmberEUI64"                  description="The source IEEE address of the incoming pair request." />
+    <arg name="nodeCapabilities"         type="int8u"                             description="The node capabilities of the node that issued the pair request." />
+    <arg name="vendorInfo"               type="const EmberRf4ceVendorInfo *"      description="The vendor information of the requesting device." />
+    <arg name="appInfo"                  type="const EmberRf4ceApplicationInfo *" description="The application information of the requesting device." />
+    <arg name="keyExchangeTransferCount" type="int8u"                             description="The number of transfers to be used to exchange the link key with the pairing originator." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="MSO_PAIR_REQUEST" name="Mso Pair Request" returnType="boolean">
+    <description>
+      This function is called by the RF4CE Profile plugin when a pair request for the MSO profile is received.
+    </description>
+    <arg name="status"                   type="EmberStatus"                       description="An ::EmberStatus value indicating whether the pairing is a new pairing, a duplicate or if the pairing table is full." />
+    <arg name="pairingIndex"             type="int8u"                             description="The index of the entry that will be used by the stack for the pairing link." />
+    <arg name="sourceIeeeAddr"           type="const EmberEUI64"                  description="The source IEEE address of the incoming pair request." />
+    <arg name="nodeCapabilities"         type="int8u"                             description="The node capabilities of the node that issued the pair request." />
+    <arg name="vendorInfo"               type="const EmberRf4ceVendorInfo *"      description="The vendor information of the requesting device." />
+    <arg name="appInfo"                  type="const EmberRf4ceApplicationInfo *" description="The application information of the requesting device." />
+    <arg name="keyExchangeTransferCount" type="int8u"                             description="The number of transfers to be used to exchange the link key with the pairing originator." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="GDP_PAIR_COMPLETE" name="Gdp Pair Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the pairing process for the GDP profile has completed.
+    </description>
+    <arg name="status"       type="EmberStatus"                       description="An ::EmberStatus value indicating whether the pairing succeeded or the failure reason." />
+    <arg name="pairingIndex" type="int8u"                             description="The index of the pairing table entry corresponding to the pairing link that was established during the pairing process." />
+    <arg name="vendorInfo"   type="const EmberRf4ceVendorInfo *"      description="The vendor information of the peer device." />
+    <arg name="appInfo"      type="const EmberRf4ceApplicationInfo *" description="The application information of the peer device." />
+    <codeForStub />
+  </function>
+  <function id="REMOTE_CONTROL_1_1_PAIR_COMPLETE" name="Remote Control 1 1 Pair Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the pairing process for the Remote Control 1.0 or 1.1 profile has completed.
+    </description>
+    <arg name="status"       type="EmberStatus"                       description="An ::EmberStatus value indicating whether the pairing succeeded or the failure reason." />
+    <arg name="pairingIndex" type="int8u"                             description="The index of the pairing table entry corresponding to the pairing link that was established during the pairing process." />
+    <arg name="vendorInfo"   type="const EmberRf4ceVendorInfo *"      description="The vendor information of the peer device." />
+    <arg name="appInfo"      type="const EmberRf4ceApplicationInfo *" description="The application information of the peer device." />
+    <codeForStub />
+  </function>
+  <function id="ZRC_2_0_PAIR_COMPLETE" name="Zrc 2 0 Pair Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the pairing process for the ZRC 2.0 profile has completed.
+    </description>
+    <arg name="status"       type="EmberStatus"                       description="An ::EmberStatus value indicating whether the pairing succeeded or the failure reason." />
+    <arg name="pairingIndex" type="int8u"                             description="The index of the pairing table entry corresponding to the pairing link that was established during the pairing process." />
+    <arg name="vendorInfo"   type="const EmberRf4ceVendorInfo *"      description="The vendor information of the peer device." />
+    <arg name="appInfo"      type="const EmberRf4ceApplicationInfo *" description="The application information of the peer device." />
+    <codeForStub />
+  </function>
+  <function id="MSO_PAIR_COMPLETE" name="Mso Pair Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE Profile plugin when the pairing process for the MSO profile has completed.
+    </description>
+    <arg name="status"       type="EmberStatus"                       description="An ::EmberStatus value indicating whether the pairing succeeded or the failure reason." />
+    <arg name="pairingIndex" type="int8u"                             description="The index of the pairing table entry corresponding to the pairing link that was established during the pairing process." />
+    <arg name="vendorInfo"   type="const EmberRf4ceVendorInfo *"      description="The vendor information of the peer device." />
+    <arg name="appInfo"      type="const EmberRf4ceApplicationInfo *" description="The application information of the peer device." />
+    <codeForStub />
+  </function>
+</callback>

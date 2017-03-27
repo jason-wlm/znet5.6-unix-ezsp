@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+
+  <function id="METER_MIRROR_MIRROR_ADDED" name="Mirror Added" returnType="void">
+    <description>
+      This function is called by the Meter Mirror plugin whenever a RequestMirror command is successfully processed.
+    </description>
+    <arg name="requestingDeviceIeeeAddress"  type="const EmberEUI64" />
+    <arg name="endpoint"                     type="int8u"  />
+    <codeForStub />
+  </function>
+
+  <function id="METER_MIRROR_MIRROR_REMOVED" name="Mirror Removed" returnType="void">
+    <description>
+      This function is called by the Meter Mirror plugin whenever a RemoveMirror command is successfully processed.
+    </description>
+    <arg name="requestingDeviceIeeeAddress"  type="const EmberEUI64" />
+    <arg name="endpoint"                     type="int8u"  />
+    <codeForStub />
+  </function>
+
+  <function id="METER_MIRROR_REPORTING_COMPLETE" name="Reporting Complete" returnType="void">
+    <description>
+      This function is called by the Meter Mirror plugin after processing an AttributeReportingStatus attribute set to ReportingComplete. If the application needs to do any post attribute reporting processing it can do it from within this callback.
+    </description>
+    <arg name="endpoint"                     type="int8u"  />
+    <codeForStub />
+  </function>
+
+</callback>

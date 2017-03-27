@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <include>EMBER_AF_API_RF4CE_PROFILE</include>
+  <include>EMBER_AF_API_RF4CE_GDP</include>
+  <function id="ZRC_2_0_START_CONFIGURATION" name="Zrc 2 0 Start Configuration" returnType="boolean">
+    <description>
+      This function is called by the RF4CE GDP plugin when ZRC 2.0 configuration should begin.
+    </description>
+    <arg name="isOriginator" type="boolean" description="TRUE if is originator, FALSE if is recipient." />
+    <arg name="pairingIndex" type="int8u"   description="The index of the pairing entry." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="ZRC_2_0_BINDING_COMPLETE" name="Zrc 2 0 Binding Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE GDP plugin when a ZRC 2.0 binding procedure completed.
+    </description>
+    <arg name="status" type="EmberAfRf4ceGdpBindingStatus" description="An ::EmberAfRf4ceGdpBindingStatus value indicating whether the the binding succeeded or the reason of failure." />
+    <arg name="pairingIndex" type="int8u"   description="The index of the pairing entry." />
+    <codeForStub>
+    </codeForStub>
+  </function>
+  <function id="START_VALIDATION" name="Start Validation" returnType="void">
+    <description>
+      This function is called by the RF4CE GDP plugin when the application should begin the validation procedure.  The application must complete the validation within the validation wait time to avoid the validation automatically failing due to a timeout.
+    </description>
+    <arg name="pairingIndex" type="int8u" description="The index of the pairing entry." />
+    <codeForStub />
+  </function>
+  <function id="BINDING_COMPLETE" name="Binding Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE GDP plugin when the binding operation completes.  If status is ::EMBER_SUCCESS, binding was successful and pairingIndex indicates the index in the pairing table for the remote node.
+    </description>
+    <arg name="status"       type="EmberAfRf4ceGdpBindingStatus" description="The status of the binding operation." />
+    <arg name="pairingIndex" type="int8u"                        description="The index of the pairing entry." />
+    <codeForStub />
+  </function>
+  <function id="INCOMING_BIND_PROXY" name="Incoming Bind Proxy" returnType="boolean">
+    <description>
+      This function is called by the RF4CE GDP plugin when the binding recipient receives a pair request with the Binding Proxy Supported bit set. If this callback returns TRUE, the recipient will respond to the pair request, otherwise it will ignore it.
+    </description>
+    <arg name="ieeeAddr" type="const EmberEUI64" description="The IEEE address of the originator node sending the pair request." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="HEARTBEAT_POLLING_ESTABLISHED" name="Heartbeat Polling Established" returnType="void">
+    <description>
+      This function is called by the RF4CE GDP plugin when heartbeat polling is established between a client and this server. The application should wait until the heartbeat callback is called to send messages to the client. A module can subscribe to incoming heartbeats by using the ::emberAfRf4ceGdpSubscribeToHeartbeat() API.
+    </description>
+    <arg name="pairingIndex" type="int8u"                         description="The polling method." />
+    <arg name="triggers"     type="EmberAfRf4ceGdpPollingTrigger" description="The polling triggers." />
+    <codeForStub />
+  </function>
+  <function id="IDENTIFY" name="Identify" returnType="void">
+    <description>
+      This function is called by the RF4CE GDP plugin when the client should take an action to identify itself.
+    </description>
+    <arg name="flags" type="EmberAfRf4ceGdpClientNotificationIdentifyFlags" description="The actions the client should take to identify itself." />
+    <arg name="timeS" type="int16u"                                         description="The time in seconds that the client should perform the identify action or zero if the client should stop the action." />
+    <codeForStub />
+  </function>
+  <function id="IDENTIFY_CLIENT_FOUND" name="Identify Client Found" returnType="void">
+    <description>
+      This function is called by the RF4CE GDP plugin when the an identify server discovers an identify client.
+    </description>
+    <arg name="flags" type="EmberAfRf4ceGdpClientNotificationIdentifyFlags" description="The actions supported by the discovered identify client." />
+    <codeForStub />
+  </function>
+  <function id="KEY_EXCHANGE_COMPLETE" name="Key Exchange Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE GDP plugin when a Key Exchange procedure that was initiated by the application has completed.
+    </description>
+    <arg name="status"  type="EmberStatus" description="The status success/failed of the Key Exchange procedure." />
+    <codeForStub />
+  </function>
+  <function id="VENDOR_SPECIFIC_KEY_EXCHANGE" name="Vendor Specific Key Exchange" returnType="boolean">
+    <description>
+      This function is called by the RF4CE GDP plugin when a Key Exchange Challenge with the vendor-specific bit set is received. If this callback returns TRUE, the node will respond with a Key Exchange Challenge Response command with the vendor-specific bit set.
+    </description>
+    <arg name="initiatorVendorSpecificParam"  type="int8u"  description="The additional parameter included in the Key Exchange Flags of the incoming Key Exchange Challenge command." />
+    <arg name="responderVendorSpecificParam"  type="int8u*" description="The additional parameter to be included in the Key Exchange Flags of the Key Exchange Challenge Response command the node will send out." />
+    <arg name="sharedSecret"  type="int8u*" description="A pointer to an 8-byte area memory to be filled with the vendor-specific shared secret." />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+</callback>

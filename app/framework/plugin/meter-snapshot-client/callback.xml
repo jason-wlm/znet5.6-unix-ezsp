@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="METER_SNAPSHOT_CLIENT_SCHEDULE_SNAPSHOT_RESPONSE" name="Schedule Snapshot Response" returnType="void">
+    <description>
+      This function is called by the Meter Snapshot client plugin whenever a ScheduleSnapshotResponse command is received. A plugin implementing backhaul functionality for the client-side snapshot mechanism should handle the afforded information accordingly.
+    </description>
+    <arg name="issuerEventId"            type="int8u"  />
+    <arg name="snapshotResponsePayload"  type="int8u*" />
+    <codeForStub />
+  </function>
+  <function id="METER_SNAPSHOT_CLIENT_TAKE_SNAPSHOT_RESPONSE" name="Take Snapshot Response" returnType="void">
+    <description>
+      This function is called by the Meter Snapshot client plugin whenever a TakeSnapshotResponse command is received. A plugin implementing backhaul functionality for the snapshot mechanism should process the response payload accordingly.
+    </description>
+    <arg name="snapshotId"           type="int32u" />
+    <arg name="snapshotConfirmation" type="int8u"  />
+    <codeForStub />
+  </function>
+  <function id="METER_SNAPSHOT_CLIENT_PUBLISH_SNAPSHOT" name="Publish Snapshot" returnType="void">
+    <description>
+      This function is called by the Meter Snapshot client plugin whenever a PublishSnapshot command is received. A plugin implementing backhaul functionality for the snapshot mechanism should proceed to process / store the snapshot as needed.
+    </description>
+    <arg name="snapshotId"          type="int32u" />
+    <arg name="snapshotTime"        type="int32u" />
+    <arg name="totalSnapshotsFound" type="int8u"  />
+    <arg name="commandIndex"        type="int8u"  />
+    <arg name="totalCommands"       type="int8u"  />
+    <arg name="snapshotCause"       type="int32u" />
+    <arg name="snapshotPayloadType" type="int8u"  />
+    <arg name="snapshotPayload"     type="int8u*" />
+    <codeForStub />
+  </function>
+</callback>

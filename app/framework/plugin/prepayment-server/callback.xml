@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="CONSUMER_TOP_UP" name="Consumer Top Up" returnType="boolean">
+    <description>
+      This function is called when a Consumer Top Up command is received.  This callback must evaluate the command data and determine if it is a valid Top Up command.
+    </description>
+    <arg name="originatingDevice" type="int8u"/>
+    <arg name="topUpCode" type="int8u *"/>
+    <codeForStub>
+      // Return TRUE if the top up command is valid, FALSE if not.
+      return TRUE;
+    </codeForStub>
+  </function>
+</callback>
+

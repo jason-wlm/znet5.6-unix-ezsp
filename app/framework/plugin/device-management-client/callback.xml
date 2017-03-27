@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="DEVICE_MANAGEMENT_CLIENT_ENACT_CHANGE_OF_TENANCY" name="Enact Change Of Tenancy" returnType="void">
+    <description>
+      This callback will be implemented by a meter to enact a change of tenancy at the requested time of implementation.
+    </description>
+    <arg name="endpoint" type="int8u"                            />
+    <arg name="tenancy"  type="EmberAfDeviceManagementTenancy *" />
+    <codeForStub />
+  </function>
+  <function id="DEVICE_MANAGEMENT_CLIENT_ENACT_CHANGE_OF_SUPPLIER" name="Enact Change Of Supplier" returnType="void">
+    <description>
+      This callback will be implemented by a meter to enact a change of supplier at the requested time of implementation.
+    </description>
+    <arg name="endpoint"  type="int8u"                             />
+    <arg name="supplier"  type="EmberAfDeviceManagementSupplier *" />
+    <codeForStub />
+  </function>
+  <function id="DEVICE_MANAGEMENT_CLIENT_ENACT_CHANGE_SUPPLY" name="Enact Change Supply" returnType="EmberStatus">
+    <description>
+      This callback will be implemented by a meter to enact a supply change at the requested time of implementation.
+    </description>
+    <arg name="endpoint"  type="int8u"                             />
+    <arg name="supply"    type="EmberAfDeviceManagementSupply *" />
+    <codeForStub>
+      return EMBER_ZCL_STATUS_SUCCESS;
+    </codeForStub>
+  </function>
+  <function id="DEVICE_MANAGEMENT_CLIENT_SET_SUPPLY_STATUS" name="Set Supply Status" returnType="void">
+    <description>
+      This callback will be implemented by a meter to appropriately set the supply status.
+    </description>
+    <arg name="endpoint" type="int8u"                            />
+    <arg name="supplyStatus"  type="EmberAfDeviceManagementSupplyStatusFlags *" />
+    <codeForStub />
+  </function>
+  <function id="DEVICE_MANAGEMENT_CLIENT_ENACT_UPDATE_UNCONTROLLED_FLOW_THRESHOLD" name="Enact Update Uncontrolled Flow Threshold" returnType="void">
+    <description>
+      This callback will be implemented by a meter to enact an update to the uncontrolled flow threshold as specified.
+    </description>
+    <arg name="endpoint"  type="int8u"                             />
+    <arg name="supplier"  type="EmberAfDeviceManagementUncontrolledFlowThreshold *" />
+    <codeForStub />
+  </function>
+</callback>

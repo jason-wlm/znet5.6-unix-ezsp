@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+
+  <function id="COMMS_HUB_FUNCTION_SEND" name="Send" returnType="void">
+    <description>
+      This callback is called by the Comms Hub Function (CHF) plugin to report the status of a message that was previously sent.
+    </description>
+    <arg name="status"              type="int8u"      description="The status of the message that was sent" />
+    <arg name="destinationDeviceId" type="EmberEUI64" description="The EUI64 of the destination device to which the data was sent" />
+    <arg name="dataLen"             type="int16u"     description="The length in octets of the data that was sent" />
+    <arg name="data"                type="int8u *"    description="Buffer containing the raw octets of the data that was sent" />
+    <codeForStub>
+  emberAfAppPrint("GBCS emberAfPluginCommsHubFunctionSendCallback: status=0x%x, destinationDeviceId=", status);
+  emberAfAppDebugExec(emberAfPrintBigEndianEui64(destinationDeviceId));
+  emberAfAppPrintln(" dataLen=0x%2x", dataLen);
+      </codeForStub>
+  </function>
+
+  <function id="COMMS_HUB_FUNCTION_RECEIVED" name="Received" returnType="void">
+    <description>
+      This callback is called by the Comms Hub Function (CHF) plugin whenever a message is received.
+    </description>
+    <arg name="senderDeviceId" type="EmberEUI64" description="The EUI64 of the sending device" />
+    <arg name="dataLen"        type="int16u"     description="The length in octets of the data" />
+    <arg name="data"           type="int8u *"    description="Buffer containing the raw octets of the data" />
+    <codeForStub>
+  emberAfAppPrint("GBCS emberAfPluginCommsHubFunctionDataReceivedCallback: senderDeviceId=");
+  emberAfAppDebugExec(emberAfPrintBigEndianEui64(senderDeviceId));
+  emberAfAppPrint(", dataLen=0x%2x, data=0x", dataLen);
+  emberAfAppPrintBuffer(data, dataLen, FALSE);
+  emberAfAppPrintln("");
+      </codeForStub>
+  </function>
+
+  <function id="COMMS_HUB_FUNCTION_ALERT_WAN" name="Alert WAN" returnType="void">
+    <description>
+      Notify the application of an Alert that should be sent to the WAN. The second argument is a pointer to the gbz alert buffer. The application is responsible for freeing this buffer.
+    </description>
+    <arg name="alertCode"      type="int16u"  description="The 16 bit allert code as defined by GBCS" />
+    <arg name="gbzAlert"       type="int8u *" description="Buffer continaing the GBZ formatted Alert"/>
+    <arg name="gbzAlertLength" type="int16u"  description="The length in octets of the GBZ formatted Alert" />
+    <codeForStub>
+  emberAfAppPrintln("GBCS emberAfPluginCommsHubFunctionAlertWANCallback: alertCode=0x%2x, gbzAlertLength=0x%2x", alertCode, gbzAlertLength);
+  free(gbzAlert);
+  gbzAlert = NULL;
+    </codeForStub>
+  </function>
+
+</callback>

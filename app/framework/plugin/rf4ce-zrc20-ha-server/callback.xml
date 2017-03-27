@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="HA_ACTION_SENT" name="Ha Action Sent" returnType="void">
+    <description> 
+      This function is called by the HA server plugin once the HA action is sent to the ZCL network.
+    </description>
+    <arg name="type"               type="EmberOutgoingMessageType" description="Outgoing message type." />
+    <arg name="indexOrDestination" type="int16u"                   description="Binding index." />
+    <arg name="apsFrame"           type="EmberApsFrame*"           description="APS frame pointer." />
+    <arg name="msgLen"             type="int16u"                   description="Message length." />
+    <arg name="message"            type="int8u*"                   description="Message pointer." />
+    <arg name="status"             type="EmberStatus"              description="Status." />
+    <codeForStub>
+      return EMBER_INVALID_CALL;
+    </codeForStub>
+  </function>
+</callback>

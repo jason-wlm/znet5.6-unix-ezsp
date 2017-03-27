@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="PRICE_STARTED" name="Price Started" returnType="void">
+    <description> 
+      This function is called by the Price client plugin whenever a price starts.
+    </description>
+    <arg name="price" type="EmberAfPluginPriceClientPrice *" description="The price that has started." />
+    <codeForStub />
+  </function>
+  <function id="PRICE_EXPIRED" name="Price Expired" returnType="void">
+    <description> 
+      This function is called by the Price client plugin whenever a price expires.
+    </description>
+    <arg name="price" type="EmberAfPluginPriceClientPrice *" description="The price that has expired." />
+    <codeForStub />
+  </function>
+
+  <function id="PENDING_CPP_EVENT" name="Pending Cpp Event" returnType="int8u">
+    <description> 
+      This function is called by the Price client plugin when a CPP event is received with pending status.
+    </description>
+    <arg name="cppAuth" type="int8u" description="The CPP Auth status." />
+    <codeForStub>
+    extern int8u emberAfPriceClusterDefaultCppEventAuthorization;
+
+    /* This callback should decide which CPP Auth status to send in response to the pending status.
+       It may return EMBER_AF_PLUGIN_PRICE_CPP_AUTH_ACCEPTED or EMBER_AF_PLUGIN_PRICE_CPP_AUTH_REJECTED. */
+       if( cppAuth != EMBER_AF_PLUGIN_PRICE_CPP_AUTH_FORCED ){
+         return emberAfPriceClusterDefaultCppEventAuthorization;
+       }
+       else{
+         return EMBER_AF_PLUGIN_PRICE_CPP_AUTH_ACCEPTED;
+       }
+    </codeForStub>
+  </function>
+</callback>

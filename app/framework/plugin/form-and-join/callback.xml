@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="NETWORK_FOUND" name="Network Found" returnType="void">
+    <description>
+      This is called by the form-and-join library to notify the application of the network found after a call to ::emberScanForJoinableNetwork() or ::emberScanForNextJoinableNetwork().  See form-and-join documentation for more information.
+    </description>
+    <arg name="networkFound" type="EmberZigbeeNetwork *" description="" />
+    <arg name="lqi"          type="int8u"                description="" />
+    <arg name="rssi"         type="int8s"                description="" />
+    <codeForStub/>
+  </function>
+  <function id="UNUSED_PAN_ID_FOUND" name="Unused Pan Id Found" returnType="void">
+    <description>
+      This function is called when the form-and-join library finds an unused PAN ID that can be used to form a new network on.
+    </description>
+    <arg name="panId" type="EmberPanId" description="A randomly generated PAN ID without other devices on it."/>
+    <arg name="channel" type="int8u"    description="The channel where the PAN ID can be used to form a new network."/>
+  </function>
+</callback>

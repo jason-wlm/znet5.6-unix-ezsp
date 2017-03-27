@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="DECRYPT_DATA" name="Decrypt Data" returnType="void">
+    <description>
+      This function is called by the Gbz Message Controller plugin to decrypt a ZCL payload. If the decryption is successful, the application is responsible for allocating the memory for the new decrypted data and passing the pointer via the "plainData" field as well as the plainDataLength field for the length. The framework will be responsible for free-ing the allocated memory. If the decryption fails, the callback return FALSE and should not modify any data.
+    </description>
+    <arg name="data" type="EmberAfGbzMessageData *"/>
+    <codeForStub />
+  </function>
+  <function id="ENCRYPT_DATA" name="Encrypt Data" returnType="void">
+    <description>
+      This function is called by the Gbz Message Controller plugin to encrypt a ZCL payload. If the encryption is successful, the application is responsible for allocating the memory for the new encrypted data and passing the pointer via the "encryptedData" field as well as the encryptedDataLength field for the length. The framework will be responsible for free-ing the allocated memory. If the encryption fails, the callback return FALSE and should not modify any data.
+    </description>
+    <arg name="data" type="EmberAfGbzMessageData *"/>
+    <codeForStub />
+  </function>
+</callback>

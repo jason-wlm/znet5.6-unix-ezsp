@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+
+  <function id="BIND_WITH_TARGET" name="Found Bind Target" returnType="boolean">
+    <description>
+      This callback with enable the user to programmatically decide if they want to bind with a potential target. The plugin will try to bind with this target if and only if the function returns true. By default, the callback tells the plugin to try to bind with the target.
+    </description>
+    <codeForStub>
+      return TRUE;
+    </codeForStub>
+    <arg name="nodeId" type="EmberNodeId" description="short ID of the potential target" />
+    <arg name="endpoint" type="int8u" description="destination endpoint of the potential target" />
+    <arg name="ieeeAddr" type="EmberEUI64" description="EUI64 of the potential target" />
+    <arg name="clusterId" type="int16u" description="cluster of the potential target" />
+  </function>
+
+  <function id="COMPLETE" name="Initiator Complete" returnType="void">
+    <description>
+      This callback is fired by the initiator when the Find and Bind process is complete.
+    </description>
+    <arg name="status" type="EmberStatus" description="Status code describing the completion of the find and bind process" />
+    <codeForStub>
+      emberAfCorePrintln("Find and Bind: Initiator: Done: 0x%X", status);
+    </codeForStub>
+  </function>
+
+</callback>

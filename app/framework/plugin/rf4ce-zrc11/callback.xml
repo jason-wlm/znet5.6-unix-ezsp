@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <include>EMBER_AF_API_RF4CE_PROFILE</include>
+  <include>EMBER_AF_API_RF4CE_ZRC11</include>
+  <function id="PAIRING_COMPLETE" name="Pairing Complete" returnType="void">
+    <description>
+      This function is called by the RF4CE ZRC plugin when the push-button pairing operation completes.  If status is ::EMBER_SUCCESS, pairing was successful and pairingIndex indicates the index in the pairing table for the remote node while eui64, vendorInfo, and applicationInfo contain information about the remote node itself.  Otherwise, status indicates the reason for failure and the other arguments are meaningless.
+    </description>
+    <arg name="status"          type="EmberStatus"                       description="The status of the push-button pairing operation." />
+    <arg name="pairingIndex"    type="int8u"                             description="The index of the pairing entry." />
+    <arg name="eui64"           type="const EmberEUI64"                  description="The ::EmberEUI64 of the remote node." />
+    <arg name="vendorInfo"      type="const EmberRf4ceVendorInfo *"      description="The vendor information of the remote node." />
+    <arg name="applicationInfo" type="const EmberRf4ceApplicationInfo *" description="The application information of the remote node." />
+    <codeForStub />
+  </function>
+  <function id="USER_CONTROL" name="User Control" returnType="void">
+    <description>
+      This function is called by the RF4CE ZRC plugin when a user control starts or stops.  If the type of the record is ::EMBER_AF_RF4CE_ZRC_COMMAND_USER_CONTROL_PRESSED, the application should execute the requested operation repeatedly at some application-specific rate.  When the repetition should stop, the plugin will call the callback again with the type set to ::EMBER_AF_RF4CE_ZRC_COMMAND_USER_CONTROL_RELEASED.  ::EMBER_AF_RF4CE_ZRC_COMMAND_USER_CONTROL_REPEATED is a special case of ::EMBER_AF_RF4CE_ZRC_COMMAND_USER_CONTROL_PRESSED and means that the pressed command from the originator was not received and that the originator is still triggering the action.  The application should process a repeat type the same as a pressed type, but may wish to perform additional operations to compensate for missed commands.
+    </description>
+    <arg name="record" type="const EmberAfRf4ceZrcUserControlRecord *" description="The user control record." />
+    <codeForStub />
+  </function>
+  <function id="COMMAND_DISCOVERY_RESPONSE" name="Command Discovery Response" returnType="void">
+    <description>
+      This function is called by the RF4CE ZRC plugin when a Command Discovery Response message is received by the device.
+    </description>
+    <arg name="status"            type="EmberStatus"                              description="An ::EmberStatus value indicating that the command discovery process succeeded or the failure reason." />
+    <arg name="commandsSupported" type="const EmberAfRf4ceZrcCommandsSupported *" description="The 256-bit field indicating which user control commands are supported." />
+    <codeForStub />
+  </function>
+</callback>

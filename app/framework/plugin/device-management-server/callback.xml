@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="DEVICE_MANAGEMENT_SERVER_GET_PASSWORD" name="Get Password" returnType="void">
+    <description>
+      This callback will be implemented by an esi to provide device specific password information.
+    </description>
+    <arg name="senderNodeId" type="EmberNodeId"                         />
+    <arg name="passwordType" type="EmberAfDeviceManagementPasswordType" />
+    <arg name="passwordInfo" type="EmberAfDeviceManagementPassword" />
+    <codeForStub />
+  </function>
+</callback>

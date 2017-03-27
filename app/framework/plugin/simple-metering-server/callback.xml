@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="PROCESS_NOTIFICATION_FLAGS" name="Process Notification Flags" returnType="void">
+    <description>
+      This function is called by the metering server plugin when any of the Notification Attribute Set attributes are read or reported by the metering client.
+    </description>
+    <arg name="attributeId"    type="int16u"/>
+    <arg name="attributeValue" type="int32u"/>
+    <codeForStub/>
+  </function>
+</callback>

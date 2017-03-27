@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="MESSAGING_CLIENT_PRE_DISPLAY_MESSAGE" name="Pre Display Message" returnType="boolean">
+    <description> 
+      This function is called by the Messaging client plugin when a DisplayMessage command is received. If callback returns true, the plugin assumes the message have been handled and will not do anything with the message. Otherwise, the plugin will go through with its own implementation.
+    </description>
+    <arg name="messageId"                      type="int32u"  />
+    <arg name="messageControl"                 type="int8u"   />
+    <arg name="startTime"                      type="int32u"  />
+    <arg name="durationInMinutes"              type="int16u"  />
+    <arg name="message"                        type="int8u *" />
+    <arg name="optionalExtendedMessageControl" type="int8u"   />
+    <codeForStub>
+      return FALSE;
+    </codeForStub>
+  </function>
+  <function id="MESSAGING_CLIENT_DISPLAY_MESSAGE" name="Display Message" returnType="void">
+    <description> 
+      This function is called by the Messaging client plugin whenever the application should display a message.
+    </description>
+    <arg name="message" type="EmberAfPluginMessagingClientMessage *" description="The message that should be displayed." />
+    <codeForStub />
+  </function>
+  <function id="MESSAGING_CLIENT_CANCEL_MESSAGE" name="Cancel Message" returnType="void">
+    <description> 
+      This function is called by the Messaging client plugin whenever the application should stop displaying a message.
+    </description>
+    <arg name="message" type="EmberAfPluginMessagingClientMessage *" description="The message that should no longer be displayed." />
+    <codeForStub />
+  </function>
+</callback>

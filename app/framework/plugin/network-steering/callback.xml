@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+  <function id="COMPLETE" name="Complete" returnType="void">
+    <description>
+      This callback is fired when the Network Steering plugin is complete.
+    </description>
+    <arg name="status"  type="EmberStatus" description="On success this will be set to EMBER_SUCCESS to indicate a network was joined successfully.  On failure this will be the status code of the last join or scan attempt."/>
+    <arg name="totalBeacons" type="int8u" description="The total number of 802.15.4 beacons that were heard, including beacons from different devices with the same PAN ID."/>
+    <arg name="joinAttempts" type="int8u" description="The number of join attempts that were made to get onto an open Zigbee network."/>
+    <arg name="defaultKeyUsed" type="boolean" description="When joining is successful, this indicates whether the install code was used (FALSE) or the default well-known key (TRUE)."/>
+    <codeForStub>
+      emberAfCorePrintln("Network Steering Completed: %p (0x%X)",
+                         (status == EMBER_SUCCESS ? "Join Success" : "FAILED"),
+                         status);
+      emberAfCorePrintln("Default Key Used: %p", (defaultKeyUsed ? "yes" : "no"));
+      emberAfCorePrintln("Beacons heard: %d\nJoin Attempts: %d", totalBeacons, joinAttempts);                     
+
+    </codeForStub>
+  </function>
+  <function id="GET_POWER_FOR_RADIO_CHANNEL" name="Get Power For Radio Channel" returnType="int8s">
+    <description>
+      This callback is fired when the Network Steering plugin needs to set the power level.  The application has the ability to change the max power level used for this particular channel.
+    </description>
+    <arg name="channel" type="int8u" description="The channel that the plugin is inquiring about the power level."/>
+    <codeForStub>
+      return emberAfMaxPowerLevel();
+    </codeForStub>
+  </function>
+</callback>

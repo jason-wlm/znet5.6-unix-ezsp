@@ -1,0 +1,35 @@
+#include PLATFORM_HEADER
+#include CONFIGURATION_HEADER
+#include EMBER_AF_API_ZIGBEE_PRO
+
+void emberOrphanNotificationHandler(EmberEUI64 longId)
+{
+  return;
+}
+
+/**@brief A callback invoked by the EmberZNet stack to filter out incoming
+ * application MAC passthrough messages.  If this returns TRUE for a message
+ * the complete message will be passed to emberMacPassthroughMessageHandler()
+ * with a type of EMBER_MAC_PASSTHROUGH_APPLICATION.
+ *
+ * Note that this callback may be invoked in ISR context and should execute as
+ * quickly as possible.
+ *
+ * Note that this callback may be called more than once per incoming message.  
+ * Therefore the callback code should not depend on being called only once,
+ * and should return the same value each time it is called with a given header.
+ *
+ * If the application includes this callback, it must define
+ * EMBER_APPLICATION_HAS_MAC_PASSTHROUGH_FILTER_HANDLER in its
+ * CONFIGURATION_HEADER.
+ *
+ * @param macHeader        A pointer to the initial portion of the
+ *     incoming MAC header.  This contains the MAC frame control and
+ *     addressing fields.  Subsequent MAC fields, and the MAC payload,
+ *     may not be present.
+ * @return TRUE if the messages is an application MAC passthrough message.
+ */
+boolean emberMacPassthroughFilterHandler(int8u *macHeader)
+{
+  return FALSE;
+}

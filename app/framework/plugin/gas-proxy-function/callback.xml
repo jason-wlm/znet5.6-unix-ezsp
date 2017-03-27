@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<callback prefix="emberAf" postfix="Callback">
+<include>&lt;stdlib.h&gt;</include>
+
+  <function id="GAS_PROXY_FUNCTION_NON_TAP_OFF_MESSAGE_HANDLER_COMPLETED" name="Non Tap Off Message Handler Completed" returnType="void">
+    <description>
+      Notify the application that the Non Tap Off Message (Non-TOM) have been handled by the mirror endpoint. This callback is invoked when the the Non Tap Off Message have been processed. The first argument is a pointer to the gbz commands response buffer. The application is responsible for freeing this buffer.
+    </description>
+    <arg name="gbzCommandsResponse"       type="int8u *" />
+    <arg name="gbzCommandsResponseLength" type="int16u" />
+    <codeForStub>
+  emberAfAppPrintln("GBCS emberAfPluginGasProxyFunctionNonTapOffMessageHandlerCompletedCallback: gbzCommandsResponseLength=0x%2x", gbzCommandsResponseLength);
+  free(gbzCommandsResponse);
+  gbzCommandsResponse = NULL;
+    </codeForStub>
+  </function>
+
+  <function id="GAS_PROXY_FUNCTION_ALERT_WAN" name="Alert WAN" returnType="void">
+    <description>
+      Notify the application of an Alert that should be sent to the WAN. The second argument is a pointer to the gbz alert buffer. The application is responsible for freeing this buffer.
+    </description>
+    <arg name="alertCode"      type="int16u"  description="The 16 bit allert code as defined by GBCS" />
+    <arg name="gbzAlert"       type="int8u *" description="Buffer continaing the GBZ formatted Alert"/>
+    <arg name="gbzAlertLength" type="int16u"  description="The length in octets of the GBZ formatted Alert" />
+    <codeForStub>
+  emberAfAppPrintln("GBCS emberAfPluginGasProxyFunctionAlertWANCallback: alertCode=0x%2x, gbzAlertLength=0x%2x", alertCode, gbzAlertLength);
+  free(gbzAlert);
+  gbzAlert = NULL;
+    </codeForStub>
+  </function>
+
+</callback>
